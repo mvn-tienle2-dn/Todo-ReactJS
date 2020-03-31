@@ -1,0 +1,85 @@
+.page-header {
+  @include pxRem(height, 70);
+  @include pxRem(font-size, 24);
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  background: map-get($color, white);
+  color: map-get($color, text);
+  border-bottom: 1px solid map-get($color, border-light);
+  transition: all .2s;
+  .container {
+    height: 100%;
+  }
+  .page-logo {
+    img {
+      @include pxRem(width, 40);
+      @include pxRem(height, 40);
+    }
+  }
+  .app-title {
+    @include pxRem(font-size, 16);
+    color: map-get($color, violet);
+    letter-spacing: .1em;
+    text-shadow: -1px -1px 1px map-get($color, white), 1px 1px 1px map-get($color, violet-dark);
+  }
+  .header-right {
+    img {
+      @include pxRem(width, 30px);
+      @include pxRem(height, 30px);
+    }
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    @include pxRem(font-size, 15);
+    @include pxRem(min-width, 160);
+    @include pxRem(padding, 12 16);
+    @include pxRem(box-shadow, 0 8 16 0 rgba(0,0,0,0.2));
+    background-color: map-get($color, white);
+    color: map-get($color, text-dark-grey);
+    display: none;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background: map-get($color, border-light);
+    }
+  }
+  
+  .dropdown {
+    &:hover,
+    &:focus {
+      .dropdown-content {
+        display: block;
+      }
+    }
+  }
+
+  .link-login {
+    @include pxRem(font-size, 16);
+    color: map-get($color, primary);
+    font-weight: 600;
+  }
+}
+@include respond-above("medium") {
+  .page-header {
+    position: initial;
+    width: map-get($breakpoints, medium);
+    @include pxRem(padding, 0 100);
+  }
+}
+
+@include respond-above("large") {
+  .page-header {
+    @include pxRem(padding, 0 220);
+  }
+}

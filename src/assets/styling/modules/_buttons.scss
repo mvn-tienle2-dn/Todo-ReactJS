@@ -1,0 +1,55 @@
+.count-box {
+  position: relative;
+  width: 500px;
+  .center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .circle-custom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .decrease {
+    left: 0
+  }
+  .increase {
+    right: 0;
+  }
+}
+
+button {
+  &:disabled {
+    opacity: .5;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn {
+  @include border-radius(25);
+  @include pxRem(padding, 10 0);
+  color: map-get($color, dark-text);
+}
+
+.btn-none-border {
+  border: none;
+}
+
+.btn-primary {
+  background: map-get($color, primary);
+}
+
+.btn-warning {
+  background: map-get($color, warning);
+}
+
+.btn-success {
+  background: map-get($color, success);
+}
+
+.btn-danger {
+  background: map-get($color, danger);
+}
